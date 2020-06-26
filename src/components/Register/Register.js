@@ -4,9 +4,9 @@ class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       email: '',
-      password: '',
-      name: ''
+      password: ''
     }
   }
 
@@ -27,9 +27,9 @@ class Register extends React.Component {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
+        name: this.state.name,
         email: this.state.email,
-        password: this.state.password,
-        name: this.state.name
+        password: this.state.password
       })
     })
       .then(response => response.json())
@@ -38,7 +38,10 @@ class Register extends React.Component {
           this.props.loadUser(user)
           this.props.onRouteChange('home');
         }
+        else
+        alert('Cannot Register an Empty user!')
       })
+      .catch(console.log);
   }
 
   render() {
