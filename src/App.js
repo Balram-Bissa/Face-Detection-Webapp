@@ -13,14 +13,26 @@ import 'tachyons';
 const particlesOptions = {
   particles: {
     number: {
-      value: 30,
+      value: 70,
       density: {
         enable: true,
-        value_area: 200
+        value_area: 300
+      }
+    },
+    move: {
+      speed: 6
+    }
+  },
+  interactivity: {
+    detect_on: 'window',
+    events: {
+      onhover: {
+        enable: true,
+        mode: ['repulse']
       }
     }
   }
-}
+};
 
 const initialState = {
   input: '',
